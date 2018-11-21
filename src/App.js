@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactMapGL, {FlyToInterpolator} from "react-map-gl";
+import ReactMapGL, { FlyToInterpolator } from "react-map-gl";
 import "./index";
 import Dropdown from "./Dropdown";
 require("dotenv").config();
@@ -42,7 +42,8 @@ class App extends Component {
         longitude: this.state.options[index].center[0],
         latitude: this.state.options[index].center[1],
         zoom: 14
-      }
+      },
+      options: []
     });
   };
 
