@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactMapGL, { FlyToInterpolator } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 import "./index";
 import Dropdown from "./Dropdown";
 require("dotenv").config();
