@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import ReactMapGL, { FlyToInterpolator } from "react-map-gl";
+import ReactMapGL, { FlyToInterpolator, Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./index";
+import MAP_STYLE from "./map-style-basic.json";
 import Dropdown from "./Dropdown";
 require("dotenv").config();
 
@@ -57,12 +58,23 @@ class App extends Component {
           onSearchItem={this.onSearchItem}
         />
         <ReactMapGL
+          mapStyle={MAP_STYLE}
           {...this.state.viewport}
           onViewportChange={viewport => this.setState({ viewport })}
-          transitionDuration={5000}
+          transitionDuration={1500}
           transitionInterpolator={new FlyToInterpolator()}
           // onViewStateChange={viewport => console.log("viewport", viewport)}
-        />
+        >
+          <Marker
+            longitude={this.state.viewport.longitude}
+            latitude={this.state.viewport.latitude}
+            closeButton={true}
+            closeOnClick={false}
+            anchor="top"
+          >
+            <img src="./logo.svg" height="20" width="20" alt="marker" />
+          </Marker>
+        </ReactMapGL>
       </>
     );
   }
